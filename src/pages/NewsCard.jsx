@@ -1,6 +1,7 @@
 import { FaStar, FaEye } from "react-icons/fa";
 import { FaShareAlt } from "react-icons/fa";
 import { FaRegBookmark } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Card = ({ news }) => {
   const {
@@ -83,16 +84,19 @@ const Card = ({ news }) => {
       <img
         src={thumbnail_url}
         alt="Thumbnail"
-        className="w-full h-80  object-fill p-4 "
+        className="w-full h-80  object-fill p-4 rounded-none"
       />
 
       {/* Content Section */}
       <div className="p-4">
         <p className="text-sm text-gray-600 mb-4">
           {details.slice(0, 100)}...{" "}
-          <span className="text-blue-500 font-medium cursor-pointer">
+          <Link
+            to={`/news/${news._id}`}
+            className="text-blue-500 font-medium cursor-pointer"
+          >
             Read More
-          </span>
+          </Link>
         </p>
 
         {/* Footer Section */}
